@@ -1,0 +1,95 @@
+@import "/styles/sass/derived-variables.sass";
+$checkbox-height: 25px;
+
+.container {
+    padding: 1rem;
+    width: 100%;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: $radius;
+
+    &:hover {
+        background-color: lighten(black, 10%);
+    }
+    .checkbox {
+        height: $checkbox-height;
+        width: $checkbox-height;
+        border: 2px solid white;
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease, border 0.3s ease;
+        .tick {
+            display: block;
+        }
+        &.is_checked {
+            background-color: $primary;
+            border-color: $primary;
+        }
+    }
+
+    .text {
+        font-size: 18px;
+        flex-grow: 1;
+        margin: 0 1rem;
+        font-weight: 500;
+        .strike_wrapper {
+            position: relative;
+        }
+        .strike {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 2px;
+            background-color: white;
+        }
+    }
+    .delete {
+        height: 32px;
+        width: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        img {
+            display: block;
+        }
+    }
+}
+
+.controls {
+    display: flex;
+    border-radius: $radius-rounded;
+    position: relative;
+    border: 2px solid $black;
+    .item {
+        user-select: none;
+        padding: 0.5rem 0.75rem;
+        color: $black;
+        border-right: 2px solid $black;
+        font-weight: $weight-medium;
+        position: relative;
+        cursor: pointer;
+        &:last-child {
+            border-right: initial;
+        }
+    }
+
+    .dot {
+        position: absolute;
+        cursor: pointer;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        top: 120%;
+        background-color: $black;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: left 0.3s ease;
+    }
+}
