@@ -11,17 +11,11 @@ import debounce from "../utils/debounce";
 const Home: NextPage = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [search, setSearch] = useState<{ isActive: boolean; val?: string }>({
-		isActive: false,
+		isActive: true,
 	});
 	const [filter, setFilter] = useState<filterTypes>("all");
 
-	const [todos, setTodos] = useState<checkItemType[]>([
-		{
-			text: "Item 1 ",
-			id: 1,
-			isChecked: true,
-		},
-	]);
+	const [todos, setTodos] = useState<checkItemType[]>([]);
 
 	const handleAddItem = () => {
 		const val = inputRef.current?.value;
@@ -62,6 +56,8 @@ const Home: NextPage = () => {
 
 		return toReturn;
 	}, [filter, todos, search.val]);
+
+	console.log({ search });
 
 	return (
 		<>

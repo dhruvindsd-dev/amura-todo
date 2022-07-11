@@ -21,7 +21,6 @@ const BottomControls = ({ setFilter, filters }: BottomControlsProps) => {
 		const running = document
 			.getElementById("running")
 			?.getBoundingClientRect().width;
-		console.log({ all, completed, running });
 
 		if (!all || !completed || !running) throw Error("unable to get elements");
 
